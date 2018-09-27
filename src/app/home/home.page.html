@@ -7,13 +7,24 @@
 <ion-content padding>
   <form [formGroup]="loginForm">
     <ion-item>
-      <ion-input required type="text" placeholder="Username" [formControlName]="'username'"></ion-input>
+      <ion-input required
+                 type="text"
+                 placeholder="Username"
+                 [formControlName]="'username'">
+      </ion-input>
     </ion-item>
     <ion-item>
-      <ion-input required type="password" placeholder="Password" [formControlName]="'password'"></ion-input>
+      <ion-input required
+                 clearOnEdit="false"
+                 type="password"
+                 placeholder="Password"
+                 [formControlName]="'password'">
+      </ion-input>
     </ion-item>
     <ion-item>
-      <ion-button size="medium" (click)="login()">Login</ion-button>
+      <ion-button size="medium"
+                  [disabled]="loginForm.invalid"
+                  (click)="login()">Login</ion-button>
     </ion-item>
   </form>
 </ion-content>

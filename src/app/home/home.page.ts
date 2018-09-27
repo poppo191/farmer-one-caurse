@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -24,8 +24,8 @@ export class HomePage {
 
   private initForm() {
     this.loginForm = this.formBuilder.group({
-      username: [null],
-      password: [null]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
@@ -39,7 +39,12 @@ export class HomePage {
     const path = 'http://opendata.oae.go.th:8080/farmer/api/v1/authentication';
     this.httpClient.post(path, body)
       .subscribe((response) => {
-        console.log('response : ', response);
+        const status = response['status'];
+        if (status) {
+          alert('Login สำเร็จ');
+        } else {
+          alert('Login ไม่สำเร็จ');
+        }
       });
   }
 }
