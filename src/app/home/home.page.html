@@ -5,6 +5,15 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  <form [formGroup]="loginForm">
+    <ion-item>
+      <ion-input required type="text" placeholder="Username" [formControlName]="'username'"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="password" placeholder="Password" [formControlName]="'password'"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button size="medium" (click)="login()">Login</ion-button>
+    </ion-item>
+  </form>
 </ion-content>
