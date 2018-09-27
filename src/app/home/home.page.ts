@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../shared/service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomePage {
 
   constructor(
     private httpClient: HttpClient,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public userService: UserService
   ) {
     this.ionViewDidLoad();
   }
@@ -42,6 +44,7 @@ export class HomePage {
         const status = response['status'];
         if (status) {
           alert('Login สำเร็จ');
+          this.userService.token = response['token'];
         } else {
           alert('Login ไม่สำเร็จ');
         }
