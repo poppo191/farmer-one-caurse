@@ -50,4 +50,9 @@ export class HomePage {
         }
       });
   }
+
+  logout() {
+    this.userService.logout();
+    this.loginForm.reset();
+  }
 }

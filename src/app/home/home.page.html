@@ -7,6 +7,8 @@
 <ion-content padding>
   <ng-template [ngIf]="userService.token">
     <h1>เข้าสู่ระบบสำเร็จ</h1>
+    <ion-button size="medium"
+                (click)="logout()">Logout</ion-button>
   </ng-template>
   <ng-template [ngIf]="!userService.token">
     <form [formGroup]="loginForm">
