@@ -9,9 +9,8 @@
 <ion-content>
   <ion-list>
     <h1>{{ title }}</h1>
-
     <ion-list>
-      <ion-item *ngFor="let group of groupData; let i = index">
+      <ion-item *ngFor="let group of groupData; let i = index" [href]="'/detail/' + group.group_id">
         <ion-label>
           <h2>{{ group?.group_name }}</h2>
         </ion-label>

@@ -5,15 +5,22 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContactPage } from './contact.page';
 import { UserService } from '../shared/service/user.service';
+import { ContactDetailPage } from './contact-detail/contact-detail.page';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: ContactPage }])
+    RouterModule.forChild([
+      { path: '', component: ContactPage },
+      { path: 'detail/:id', component: ContactDetailPage }
+    ])
   ],
-  declarations: [ContactPage],
+  declarations: [
+    ContactPage,
+    ContactDetailPage
+  ],
   providers: [
     UserService
   ]
